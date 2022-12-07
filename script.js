@@ -19,15 +19,12 @@ function playRound(playerChoice, computerChoice) {
         switch (playerChoice) {
             case "ROCK":
                 return "Tie!"
-                break;
             case "PAPER":
                 ++countWinner
                 return "You win! Paper beats Rock."
-                break;
             case "SCISSORS":
                 ++countLoser
                 return "You lose! Rock beats Scissors."
-                break;
         }
     }
     else if (computerChoice === "PAPER") {
@@ -35,14 +32,11 @@ function playRound(playerChoice, computerChoice) {
             case "ROCK":
                 ++countLoser
                 return "You lose! Paper beats Rock."
-                break;
             case "PAPER":
                 return "Tie!"
-                break;
             case "SCISSORS":
                 ++countWinner
                 return "You win! Scissors beats Paper."
-                break;
         }
     }
     else if (computerChoice === "SCISSORS") {
@@ -50,14 +44,11 @@ function playRound(playerChoice, computerChoice) {
             case "ROCK":
                 ++countWinner
                 return "You win! Rock beats Scissors"
-                break;
             case "PAPER":
                 ++countLoser
                 return "You lose! Scissors beats Paper."
-                break;
             case "SCISSORS":
                 return "Tie!"
-                break;
 
         }
     }
