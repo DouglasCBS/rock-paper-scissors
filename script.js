@@ -78,52 +78,60 @@ const paper = document.querySelector("#paper")
 const scissors = document.querySelector("#scissors")
 const results = document.querySelector("#results")
 const score = document.querySelector("#score")
+const choices = document.querySelector("#choices")
 
 rock.addEventListener("click", () => {
+    rock.classList.add("clicking")
     let computerChoice = getComputerChoice()
-    results.textContent = playRound("rock", computerChoice)
+    let playerChoice = "rock"
+    choices.textContent = `Computer chose ${computerChoice}, you chose ${playerChoice}`
+    results.textContent = playRound(playerChoice, computerChoice)
     score.textContent = `${countWinner} - ${countLoser}`
-    if (countWinner === 5) {
-        results.textContent = "YOU WON!!!!!"
-        countWinner = 0
-        countLoser = 0
+    verifyWinner()
     }
-    else if (countLoser === 5) {
-        results.textContent = "YOU LOST!!!!!"
-        countWinner = 0
-        countLoser = 0
-    }
-});
+);
    
 paper.addEventListener("click", () => {
+    paper.classList.add("clicking")
     let computerChoice = getComputerChoice()
-    results.textContent = playRound("paper", computerChoice)
+    let playerChoice = "paper"
+    choices.textContent = `Computer chose ${computerChoice}, you chose ${playerChoice}`
+    results.textContent = playRound(playerChoice, computerChoice)
     score.textContent = `${countWinner} - ${countLoser}`
-    if (countWinner === 5) {
-        results.textContent = "YOU WON!!!!!"
-        countWinner = 0
-        countLoser = 0
+    verifyWinner()
     }
-    else if (countLoser === 5) {
-        results.textContent = "YOU LOST!!!!!"
-        countWinner = 0
-        countLoser = 0
-    }
-});
+);
    
 scissors.addEventListener("click", () => {
+    scissors.classList.add("clicking")
     let computerChoice = getComputerChoice()
-    results.textContent = playRound("scissors", computerChoice)
+    let playerChoice = "scissors"
+    choices.textContent = `Computer chose ${computerChoice}, you chose ${playerChoice}`
+    results.textContent = playRound(playerChoice, computerChoice)
     score.textContent = `${countWinner} - ${countLoser}`
+    verifyWinner()
+    }
+);
+
+function verifyWinner() {
     if (countWinner === 5) {
         results.textContent = "YOU WON!!!!!"
+        score.textContent = "0 - 0"
         countWinner = 0
         countLoser = 0
     }
     else if (countLoser === 5) {
         results.textContent = "YOU LOST!!!!!"
+        score.textContent = "0 - 0"
         countWinner = 0
         countLoser = 0
-    }
-});
+}}
 
+const btns = document.querySelectorAll("button")
+
+btns.forEach(btn => btn.addEventListener("transitionend", removeTransition))
+
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("clicking")
+}
