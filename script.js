@@ -77,19 +77,53 @@ const rock = document.querySelector("#rock")
 const paper = document.querySelector("#paper")
 const scissors = document.querySelector("#scissors")
 const results = document.querySelector("#results")
+const score = document.querySelector("#score")
 
 rock.addEventListener("click", () => {
     let computerChoice = getComputerChoice()
-    alert(playRound("rock", computerChoice))
+    results.textContent = playRound("rock", computerChoice)
+    score.textContent = `${countWinner} - ${countLoser}`
+    if (countWinner === 5) {
+        results.textContent = "YOU WON!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
+    else if (countLoser === 5) {
+        results.textContent = "YOU LOST!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
 });
    
 paper.addEventListener("click", () => {
     let computerChoice = getComputerChoice()
-    alert(playRound("paper", computerChoice))
+    results.textContent = playRound("paper", computerChoice)
+    score.textContent = `${countWinner} - ${countLoser}`
+    if (countWinner === 5) {
+        results.textContent = "YOU WON!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
+    else if (countLoser === 5) {
+        results.textContent = "YOU LOST!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
 });
    
 scissors.addEventListener("click", () => {
     let computerChoice = getComputerChoice()
-    alert(playRound("scissors", computerChoice))
+    results.textContent = playRound("scissors", computerChoice)
+    score.textContent = `${countWinner} - ${countLoser}`
+    if (countWinner === 5) {
+        results.textContent = "YOU WON!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
+    else if (countLoser === 5) {
+        results.textContent = "YOU LOST!!!!!"
+        countWinner = 0
+        countLoser = 0
+    }
 });
 
