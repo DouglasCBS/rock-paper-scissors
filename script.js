@@ -1,53 +1,53 @@
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
-        return "ROCK";
+        return "rock";
     }
 
     else if (choice === 1) {
-        return "PAPER";
+        return "paper";
     }
 
     else if (choice === 2) {
-        return "SCISSORS";
+        return "scissors";
     }
 };
 let countWinner = 0;
 let countLoser = 0;
 function playRound(playerChoice, computerChoice) {
-    if (computerChoice === "ROCK") {
+    if (computerChoice === "rock") {
         switch (playerChoice) {
-            case "ROCK":
+            case "rock":
                 return "Tie!";
-            case "PAPER":
+            case "paper":
                 ++countWinner
-                return "You win! Paper beats Rock.";
-            case "SCISSORS":
+                return "You win! paper beats rock.";
+            case "scissors":
                 ++countLoser
-                return "You lose! Rock beats Scissors.";
+                return "You lose! rock beats Scissors.";
         }
     }
-    else if (computerChoice === "PAPER") {
+    else if (computerChoice === "paper") {
         switch (playerChoice) {
-            case "ROCK":
+            case "rock":
                 ++countLoser
-                return "You lose! Paper beats Rock.";
-            case "PAPER":
+                return "You lose! paper beats rock.";
+            case "paper":
                 return "Tie!";
-            case "SCISSORS":
+            case "scissors":
                 ++countWinner
-                return "You win! Scissors beats Paper.";
+                return "You win! Scissors beats paper.";
         }
     }
-    else if (computerChoice === "SCISSORS") {
+    else if (computerChoice === "scissors") {
         switch (playerChoice) {
-            case "ROCK":
+            case "rock":
                 ++countWinner
-                return "You win! Rock beats Scissors";
-            case "PAPER":
+                return "You win! rock beats Scissors";
+            case "paper":
                 ++countLoser
-                return "You lose! Scissors beats Paper.";
-            case "SCISSORS":
+                return "You lose! Scissors beats paper.";
+            case "scissors":
                 return "Tie!";
 
         }
@@ -57,7 +57,7 @@ function playRound(playerChoice, computerChoice) {
 function game() {
     for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice();
-        let playerChoice = prompt("Rock, paper or scissors?").toUpperCase();
+        let playerChoice = prompt("rock, paper or scissors?").toLowerCase();
         alert(playRound(playerChoice, computerChoice));
         
         
@@ -73,4 +73,23 @@ function game() {
     }
 };
 
-game();
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
+const results = document.querySelector("#results")
+
+rock.addEventListener("click", () => {
+    let computerChoice = getComputerChoice()
+    alert(playRound("rock", computerChoice))
+});
+   
+paper.addEventListener("click", () => {
+    let computerChoice = getComputerChoice()
+    alert(playRound("paper", computerChoice))
+});
+   
+scissors.addEventListener("click", () => {
+    let computerChoice = getComputerChoice()
+    alert(playRound("scissors", computerChoice))
+});
+
